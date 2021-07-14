@@ -1,0 +1,29 @@
+# stop all
+docker stop $(docker ps -a -q) 
+
+# rm all
+docker rm $(docker ps -a -q) 
+
+# prune af
+docker system prune -af
+
+# destroy db
+sudo rm db_data -rf
+
+#restart if that matters
+sudo systemctl restart docker
+
+docker ps
+
+docker exec -it [Container ID] bash
+mysql -u root -p wordpress
+
+## select statement to check home/site_url
+SELECT * FROM wp_options WHERE option_name='siteurl' or option_name='home';
+
+## sed .sql file
+
+url1=’https://’
+url2=’http://’
+
+sed -i 's#$URL1#$URL2#g' scripts/init.sql > scripts/dev.init.sql

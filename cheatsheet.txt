@@ -10,7 +10,7 @@ docker system prune -af
 # destroy db
 sudo rm db_data -rf
 
-#restart if that matters
+# restart if that matters
 sudo systemctl restart docker
 
 docker ps

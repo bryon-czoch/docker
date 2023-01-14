@@ -19,7 +19,7 @@ docker ps
 docker exec -it [Container ID] bash
 
 # backup db to external file
-docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+docker exec CONTAINER /usr/bin/mysqldump -u root -p root DATABASE > backup.sql
 
 # load backup file to container
 cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root -p root DATABASE

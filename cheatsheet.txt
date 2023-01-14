@@ -16,6 +16,7 @@ sudo systemctl restart docker
 docker ps
 
 docker exec -it [Container ID] bash
+
 mysql -u root -p wordpress
 
 ## select statement to check home/site_url

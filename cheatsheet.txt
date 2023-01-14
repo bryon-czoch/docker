@@ -15,7 +15,14 @@ sudo systemctl restart docker
 
 docker ps
 
+# run docker in interactive shell
 docker exec -it [Container ID] bash
+
+# backup db to external file
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+
+# load backup file to container
+cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
 
 mysql -u root -p wordpress
 
